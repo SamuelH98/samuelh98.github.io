@@ -15,14 +15,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/svg+xml" href="public/images/laptop-logo.svg">
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
     <a href="#" class="logo">
-      <img src="public/images/laptop-logo.svg" alt="Laptop" width="32">
+      <span class="logo-prompt"><span class="text-orange">~</span><span class="text-blue">$</span></span>
       <span>Samuel Hale</span>
     </a>
     <ul class="nav-links">
@@ -128,6 +127,68 @@
             <li>Produced visualizations and summary reports that communicated findings to non-technical stakeholders.</li>
           </ul>
         </div>
+      </div>
+
+      <h3 class="section-subtitle">
+        <span class="text-orange">Projects</span>
+      </h3>
+      <div class="project-grid">
+        <a href="https://github.com/SamuelH98/SmartDo" target="_blank" class="project-card">
+          <div class="project-img">
+            <img src="public/images/smartdo.png" alt="SmartDo">
+          </div>
+          <div class="project-body">
+            <h4 class="project-title">SmartDo</h4>
+            <p class="project-desc">Things3-inspired task management for Android built with React Native and Expo. Features inbox, projects, areas, drag-and-drop, and dark/light themes.</p>
+            <div class="project-tags">
+              <span class="tag" style="--tag-bg: rgba(18,178,226,0.15); --tag-color: var(--brand-blue);">React Native</span>
+              <span class="tag" style="--tag-bg: rgba(249,183,40,0.15); --tag-color: var(--brand-yellow);">TypeScript</span>
+              <span class="tag" style="--tag-bg: rgba(11,166,91,0.15); --tag-color: var(--brand-green);">Expo</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://github.com/SamuelH98/mmr-checker" target="_blank" class="project-card">
+          <div class="project-img">
+            <img src="public/images/mmr-checker.png" alt="MMR Checker">
+          </div>
+          <div class="project-body">
+            <h4 class="project-title">MMR Checker</h4>
+            <p class="project-desc">Reverse-engineers hidden League of Legends MMR from match history via the Riot API. Supports ranked and normal queues with SQLite caching.</p>
+            <div class="project-tags">
+              <span class="tag" style="--tag-bg: rgba(234,32,61,0.15); --tag-color: var(--brand-orange);">Node.js</span>
+              <span class="tag" style="--tag-bg: rgba(123,94,164,0.15); --tag-color: var(--brand-purple);">Riot API</span>
+              <span class="tag" style="--tag-bg: rgba(11,166,91,0.15); --tag-color: var(--brand-green);">SQLite</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://github.com/SamuelH98/dbview" target="_blank" class="project-card">
+          <div class="project-img">
+            <img src="public/images/dbview.png" alt="dbview">
+          </div>
+          <div class="project-body">
+            <h4 class="project-title">dbview</h4>
+            <p class="project-desc">Zero-dependency SQLite database viewer written in C. Parses the SQLite3 binary B-tree format directly — no external libraries.</p>
+            <div class="project-tags">
+              <span class="tag" style="--tag-bg: rgba(11,166,91,0.15); --tag-color: var(--brand-green);">C</span>
+              <span class="tag" style="--tag-bg: rgba(243,139,163,0.15); --tag-color: var(--brand-pink);">SQLite</span>
+              <span class="tag" style="--tag-bg: rgba(18,178,226,0.15); --tag-color: var(--brand-blue);">CLI</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://github.com/SamuelH98/pacman_grpo" target="_blank" class="project-card">
+          <div class="project-img">
+            <img src="public/images/pacman-grpo.png" alt="Pacman GRPO">
+          </div>
+          <div class="project-body">
+            <h4 class="project-title">Pacman GRPO</h4>
+            <p class="project-desc">PyTorch implementation of Group Relative Policy Optimization for training an agent to play Pacman with parallel trajectory collection.</p>
+            <div class="project-tags">
+              <span class="tag" style="--tag-bg: rgba(123,94,164,0.15); --tag-color: var(--brand-purple);">PyTorch</span>
+              <span class="tag" style="--tag-bg: rgba(234,32,61,0.15); --tag-color: var(--brand-orange);">Python</span>
+              <span class="tag" style="--tag-bg: rgba(11,166,91,0.15); --tag-color: var(--brand-green);">RL</span>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -285,7 +346,7 @@
   <div class="container footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="public/images/laptop-logo.svg" alt="Laptop" width="28">
+        <span class="logo-prompt" style="font-size:20px"><span class="text-orange">~</span><span class="text-blue">$</span></span>
         <span class="footer-name">Samuel Hale</span>
       </div>
       <div class="footer-links">
