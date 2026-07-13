@@ -1,65 +1,46 @@
-# PROJECT_STATE
+# Portfolio — Glassmorphism + Parallax
 
-## Project Overview
+## Status: IN PROGRESS
 
-### Project Name
-samuelh98.github.io — Portfolio
+## Design
+- **Theme:** Glassmorphism (frosted glass panels, blur, translucent layers)
+- **Motion:** Parallax scrolling on decorative PNG cutouts
+- **Stack:** Vanilla HTML/CSS/JS — zero dependencies
+- **Fonts:** Space Grotesk (headings), Inter (body), JetBrains Mono (code/tags)
 
-### Goal
-Professional, unique, image-free portfolio site showcasing Samuel Hale's software engineering background, education, skills, and experience.
+## Files
+```
+index.html              — Single page, all sections
+styles.css              — Glass system, parallax, animations (~530 lines)
+public/js/main.js       — Parallax engine, scroll reveals, nav tracking
+public/images/cutouts/  — 17 transparent PNG cutouts (5.7MB total)
+```
 
-### Current Status
-Complete
+## Sections
+1. **Nav** — Fixed glassmorphic bar with {SH} logo
+2. **Hero** — Name, role, glass code card, parallax cutouts
+3. **About** — Bio + 4 stat cards in glass panels
+4. **Projects** — Bento grid of 8 GitHub project cards
+5. **Skills** — 8 categorized glass panels with tags
+6. **Education** — 2 glass degree cards
+7. **Contact** — Glass CTA with glow effect
 
----
-
-## Completed Features
-
-### Feature: Full Portfolio Rewrite
-
-#### Validation
-- No images or SVGs remain in the codebase
-- All resume data matches the updated PDF (MS 4.0 GPA, Ultimate SWE project, expanded skills)
-- Design is dark-themed, typography-driven, with violet/teal accent palette
-- No build step required; runs on vanilla HTML/CSS/JS
-
-#### Tests Added
-N/A — static site, no test framework
-
----
-
-## Current Work
-
-### Active Feature
-N/A
-
-### Progress
-100%
-
-### Remaining Work
-None
-
----
-
-## Next Actions
-
-None
-
----
-
-## Risks
-
-### Open Questions
-None
-
-### Known Issues
-None
-
-### Technical Concerns
-None
-
----
-
-## Resume Instructions
-
-The portfolio uses a single `index.html` with `styles.css`. All content is hand-written HTML (no templates). The resume PDF is at `Resume - Samuel Hale.pdf`. Images directory at `public/images/` was cleared.
+## Image Inventory (cutouts/)
+All images have transparent backgrounds (background removal applied via Python/Pillow BFS flood fill).
+- neon-ring.png (272KB) — Glowing neon circle ring
+- fluid-blobs.png (631KB) — Neon gradient watercolor blobs
+- neon-triangles.png (234KB) — Neon gradient triangles frame
+- wireframe-3d.png (371KB) — 3D wireframe shapes
+- gradient-blobs.png (404KB) — Gradient abstract blobs
+- tech-dots.png (95KB) — Tech dotted lines/nodes
+- neon-circle.png (234KB) — White neon circle
+- glass-panel.png (291KB) — Glass transparency shapes
+- vivid-3d-circles.png (329KB) — 3D gradient circles
+- neon-pink-blue.png (245KB) — Pink/blue neon glow
+- overlapping-triangles.png (958KB) — Bold overlapping neon triangles
+- neon-fluid.png (628KB) — Abstract fluid neon shapes
+- retro-neon-grid.png (545KB) — Retro 80s neon grid
+- purple-splatter.png (204KB) — Purple paint splatter
+- pink-blue-gradient.png (234KB) — Pink/blue gradient
+- geo-gradient.png (103KB) — Geometric gradient blocks
+- abstract-blob.png (17KB) — Abstract blob shape
