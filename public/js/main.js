@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ===== Parallax Engine =====
-  const parallaxLayers = document.querySelectorAll('.parallax-layer');
+  // ===== Scroll Handler =====
   const navLinks = document.querySelectorAll('.nav-link');
   const contentSections = document.querySelectorAll('.section[id]');
   const nav = document.querySelector('.nav');
@@ -9,15 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const onScroll = () => {
     const scrollY = window.scrollY;
-
-    // Parallax
-    parallaxLayers.forEach(layer => {
-      const speed = parseFloat(layer.dataset.speed) || 0.2;
-      const img = layer.querySelector('.cutout');
-      if (img) {
-        img.style.transform = `translate3d(0, ${scrollY * speed}px, 0)`;
-      }
-    });
 
     // Active nav link
     let current = '';
