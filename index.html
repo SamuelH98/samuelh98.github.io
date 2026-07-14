@@ -7,43 +7,43 @@
   <meta name="description" content="Software Engineer & CS Graduate Student building systems from Wayland compositors to AI agent tooling.">
   <meta property="og:title" content="Samuel Hale — Software Engineer">
   <meta property="og:description" content="Software Engineer & CS Graduate Student building systems from Wayland compositors to AI agent tooling.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta property="og:image" content="public/images/og-preview.png">
+  <link rel="canonical" href="https://samuelh98.github.io/">
+  <link rel="stylesheet" href="public/fonts/fonts.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <!-- Parallax decorative cutouts -->
   <div class="parallax-layer" data-speed="0.15">
-    <img src="public/images/cutouts/cutout-python.png" alt="" class="cutout cutout-1" aria-hidden="true">
+    <img src="public/images/cutouts/cutout-python.png" alt="" class="cutout cutout-1" aria-hidden="true" loading="lazy" fetchpriority="low">
   </div>
   <div class="parallax-layer" data-speed="0.25">
-    <img src="public/images/cutouts/cutout-typescript.png" alt="" class="cutout cutout-2" aria-hidden="true">
+    <img src="public/images/cutouts/cutout-typescript.png" alt="" class="cutout cutout-2" aria-hidden="true" loading="lazy" fetchpriority="low">
   </div>
   <div class="parallax-layer" data-speed="0.1">
-    <img src="public/images/cutouts/cutout-rust.png" alt="" class="cutout cutout-3" aria-hidden="true">
+    <img src="public/images/cutouts/cutout-rust.png" alt="" class="cutout cutout-3" aria-hidden="true" loading="lazy" fetchpriority="low">
   </div>
   <div class="parallax-layer" data-speed="0.3">
-    <img src="public/images/cutouts/cutout-go.png" alt="" class="cutout cutout-4" aria-hidden="true">
+    <img src="public/images/cutouts/cutout-go.png" alt="" class="cutout cutout-4" aria-hidden="true" loading="lazy" fetchpriority="low">
   </div>
   <div class="parallax-layer" data-speed="0.2">
-    <img src="public/images/cutouts/cutout-react.png" alt="" class="cutout cutout-5" aria-hidden="true">
+    <img src="public/images/cutouts/cutout-react.png" alt="" class="cutout cutout-5" aria-hidden="true" loading="lazy" fetchpriority="low">
   </div>
   <div class="parallax-layer" data-speed="0.35">
-    <img src="public/images/cutouts/cutout-java.png" alt="" class="cutout cutout-6" aria-hidden="true">
+    <img src="public/images/cutouts/cutout-java.png" alt="" class="cutout cutout-6" aria-hidden="true" loading="lazy" fetchpriority="low">
   </div>
   <div class="parallax-layer" data-speed="0.12">
-    <img src="public/images/cutouts/cutout-cpp.png" alt="" class="cutout cutout-7" aria-hidden="true">
+    <img src="public/images/cutouts/cutout-cpp.png" alt="" class="cutout cutout-7" aria-hidden="true" loading="lazy" fetchpriority="low">
   </div>
   <div class="parallax-layer" data-speed="0.22">
-    <img src="public/images/cutouts/cutout-javascript.png" alt="" class="cutout cutout-8" aria-hidden="true">
+    <img src="public/images/cutouts/cutout-javascript.png" alt="" class="cutout cutout-8" aria-hidden="true" loading="lazy" fetchpriority="low">
   </div>
   <div class="parallax-layer" data-speed="0.18">
-    <img src="public/images/cutouts/cutout-c.png" alt="" class="cutout cutout-9" aria-hidden="true">
+    <img src="public/images/cutouts/cutout-c.png" alt="" class="cutout cutout-9" aria-hidden="true" loading="lazy" fetchpriority="low">
   </div>
   <div class="parallax-layer" data-speed="0.28">
-    <img src="public/images/cutouts/cutout-nodejs.png" alt="" class="cutout cutout-10" aria-hidden="true">
+    <img src="public/images/cutouts/cutout-nodejs.png" alt="" class="cutout cutout-10" aria-hidden="true" loading="lazy" fetchpriority="low">
   </div>
 
   <nav class="nav">
@@ -51,11 +51,15 @@
       <a href="#" class="nav-logo">
         <span class="logo-bracket">{</span>SH<span class="logo-bracket">}</span>
       </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
       <div class="nav-links">
         <a href="#about" class="nav-link">About</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#education" class="nav-link">Education</a>
+        <a href="#resume-tailor" class="nav-link">Resume Tailor</a>
         <a href="Resume%20-%20Samuel%20Hale.pdf" target="_blank" class="nav-cta">Resume</a>
       </div>
     </div>
@@ -396,6 +400,61 @@
       </div>
     </section>
 
+    <!-- Resume Tailor -->
+    <section id="resume-tailor" class="section">
+      <div class="section-label">
+        <span class="label-num">05</span>
+        <span class="label-text">Resume Tailor</span>
+        <span class="label-line"></span>
+      </div>
+      <div class="tailor-lede">
+        Paste a job description below. It's matched against a structured model of my real skills and
+        projects, then compiled into a tailored one-page resume — as an actual PDF — using the
+        <strong>Typst compiler running as WebAssembly, directly in your browser.</strong>
+      </div>
+      <p class="tailor-note">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        Nothing you paste here is sent anywhere — matching and PDF compilation both happen on-device.
+      </p>
+
+      <div class="tailor-grid">
+        <!-- Input panel -->
+        <div class="tailor-panel glass-card">
+          <div class="tailor-panel-head">
+            <span class="tailor-panel-title">Job Description</span>
+          </div>
+          <textarea id="jd-input" class="tailor-textarea" placeholder="Paste a job description here, then click Generate. Leave it empty to see the default resume."></textarea>
+          <div class="tailor-actions">
+            <button id="generate-btn" class="btn btn-primary" type="button">
+              <span>Generate Tailored Resume</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7.8H7.8"/></svg>
+            </button>
+            <a id="download-btn" class="btn btn-glass tailor-btn-disabled" aria-disabled="true" href="#" download>Download PDF</a>
+            <span id="tailor-status">Loading Typst WASM compiler…</span>
+          </div>
+
+          <div class="tailor-summary-block">
+            <div class="tailor-summary-label">Matched Skills</div>
+            <div id="match-summary"></div>
+          </div>
+          <div class="tailor-summary-block">
+            <div class="tailor-summary-label">Selected Projects</div>
+            <ul id="selected-projects-list"></ul>
+          </div>
+        </div>
+
+        <!-- Preview panel -->
+        <div class="tailor-panel glass-card">
+          <div class="tailor-panel-head">
+            <span class="tailor-panel-title">Live Preview</span>
+          </div>
+          <div class="tailor-preview-wrap">
+            <div id="pdf-preview"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact -->
     <section class="section contact">
       <div class="contact-card glass-card">
@@ -429,6 +488,9 @@
     </footer>
   </main>
 
+  <script type="module" src="public/vendor/typst/all-in-one-lite.bundle.js" id="typst"></script>
   <script src="public/js/main.js"></script>
+  <script src="public/js/resume-data.js"></script>
+  <script src="public/js/resume-tailor.js"></script>
 </body>
 </html>

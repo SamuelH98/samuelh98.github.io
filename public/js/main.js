@@ -2,27 +2,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ===== Parallax Engine =====
   const parallaxLayers = document.querySelectorAll('.parallax-layer');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const contentSections = document.querySelectorAll('.section[id]');
+  const nav = document.querySelector('.nav');
   let ticking = false;
 
-  const updateParallax = () => {
+  const onScroll = () => {
     const scrollY = window.scrollY;
+
+    // Parallax
     parallaxLayers.forEach(layer => {
       const speed = parseFloat(layer.dataset.speed) || 0.2;
       const img = layer.querySelector('.cutout');
       if (img) {
-        const offset = scrollY * speed;
-        img.style.transform = `translate3d(0, ${offset}px, 0)`;
+        img.style.transform = `translate3d(0, ${scrollY * speed}px, 0)`;
       }
     });
+
+    // Active nav link
+    let current = '';
+    contentSections.forEach((section) => {
+      if (scrollY >= section.offsetTop - 120) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach((link) => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+
+    // Nav background
+    if (scrollY > 50) {
+      nav.style.background = 'rgba(6,6,11,.85)';
+      nav.style.borderBottomColor = 'rgba(255,255,255,.08)';
+    } else {
+      nav.style.background = 'rgba(6,6,11,.6)';
+      nav.style.borderBottomColor = 'rgba(255,255,255,.05)';
+    }
+
     ticking = false;
   };
 
   window.addEventListener('scroll', () => {
     if (!ticking) {
-      requestAnimationFrame(updateParallax);
+      requestAnimationFrame(onScroll);
       ticking = true;
     }
   }, { passive: true });
+
+  onScroll();
 
   // ===== Section Reveal =====
   const sections = document.querySelectorAll('.section');
@@ -35,30 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       },
-      { threshold: 0.05, rootMargin: '-60px 0px' }
+      { threshold: 0.02, rootMargin: '0px 0px -10px 0px' }
     );
     sections.forEach((el) => observer.observe(el));
   }
-
-  // ===== Active Nav Link =====
-  const navLinks = document.querySelectorAll('.nav-link');
-  const contentSections = document.querySelectorAll('.section[id]');
-
-  const updateActiveLink = () => {
-    let current = '';
-    contentSections.forEach((section) => {
-      const top = section.offsetTop - 120;
-      if (window.scrollY >= top) {
-        current = section.getAttribute('id');
-      }
-    });
-    navLinks.forEach((link) => {
-      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
-    });
-  };
-
-  window.addEventListener('scroll', updateActiveLink, { passive: true });
-  updateActiveLink();
 
   // ===== Smooth Scroll =====
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -73,18 +80,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ===== Nav Background on Scroll =====
-  const nav = document.querySelector('.nav');
-  const updateNav = () => {
-    if (window.scrollY > 50) {
-      nav.style.background = 'rgba(6,6,11,.85)';
-      nav.style.borderBottomColor = 'rgba(255,255,255,.08)';
-    } else {
-      nav.style.background = 'rgba(6,6,11,.6)';
-      nav.style.borderBottomColor = 'rgba(255,255,255,.05)';
-    }
-  };
-  window.addEventListener('scroll', updateNav, { passive: true });
-  updateNav();
+  // ===== Mobile Nav Toggle =====
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinksEl = document.querySelector('.nav-links');
+  if (navToggle && navLinksEl) {
+    const closeMenu = () => {
+      navToggle.classList.remove('open');
+      navLinksEl.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    };
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinksEl.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    navLinksEl.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+  }
 
 });
