@@ -13,6 +13,7 @@ window.RESUME_DATA = {
     email: "samueljameshale1998@gmail.com",
     linkedin: "linkedin.com/in/samuel-james-hale",
     site: "samuelh98.github.io",
+    citizenship: "U.S. Citizen",
   },
 
   education: [
