@@ -241,7 +241,7 @@
     ${tEsc(header.phone)} #h(0.35em)|#h(0.35em)
     #link("mailto:${header.email}")[${tEsc(header.email)}] #h(0.35em)|#h(0.35em)
     #link("https://${header.linkedin}")[${tEsc(header.linkedin)}] #h(0.35em)|#h(0.35em)
-    #link("https://${header.site}")[${tEsc(header.site)}] #h(0.35em)|#h(0.35em)
+    #link("https://samuelh98.github.io")[${tEsc(header.site)}] #h(0.35em)|#h(0.35em)
     ${tEsc(header.citizenship)}
   ]
 ]
