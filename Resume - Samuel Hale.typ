@@ -31,7 +31,7 @@
     919-904-3651 #h(0.3em)|#h(0.3em)
     #link("mailto:samueljameshale1998@gmail.com")[samueljameshale1998\@gmail.com] #h(0.3em)|#h(0.3em)
     #link("https://linkedin.com/in/samuel-james-hale")[LinkedIn] #h(0.3em)|#h(0.3em)
-    #link("https://samuelh98.github.io")[samuelh98.github.io] #h(0.3em)|#h(0.3em)
+    #link("https://samuelh98.github.io")[Portfolio] #h(0.3em)|#h(0.3em)
     U.S. Citizen
   ]
 ]

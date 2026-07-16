@@ -12,7 +12,7 @@ window.RESUME_DATA = {
     phone: "919-904-3651",
     email: "samueljameshale1998@gmail.com",
     linkedin: "linkedin.com/in/samuel-james-hale",
-    site: "samuelh98.github.io",
+    site: "Portfolio",
     citizenship: "U.S. Citizen",
   },
 
