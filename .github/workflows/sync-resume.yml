@@ -1,0 +1,43 @@
+name: Sync resume from Typst
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-resume
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Typst
+        uses: typst-community/setup-typst@v5
+        with:
+          typst-version: '^0.15'
+
+      - name: Install resume font (Linux Libertine O)
+        run: sudo apt-get update && sudo apt-get install -y fonts-linuxlibertine
+
+      - name: Sync resume from Typst share link
+        run: ./scripts/sync-resume.sh
+
+      - name: Commit & push if changed
+        run: |
+          git add -A
+          if ! git diff --cached --quiet; then
+            git config user.name "resume-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Sync resume from Typst"
+            git push
+          else
+            echo "No changes to commit."
+          fi
