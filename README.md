@@ -30,3 +30,8 @@ python3 -m http.server 8000
 ```
 
 Open `http://localhost:8000` in a browser. No build step required.
+
+
+## Redesign note
+
+`index.html` is now a self-contained page (inline CSS/JS, embedded photos, Google Fonts). `styles.css`, `public/js/*`, `public/videos/*` and `public/fonts/*` are no longer referenced and can be deleted. `public/images/og-preview.jpg` is the social preview image.
