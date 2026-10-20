@@ -10,6 +10,11 @@ Personal portfolio site built with vanilla HTML, CSS, and JavaScript. Hosted on 
 - **Skills** — categorized skill tags
 - **Contact** — email, LinkedIn, GitHub
 
+## Hero effects
+
+- **Scan pulse** — a Death Stranding-style scan: a bright front sweeps up each hero photo in under a second, revealing dense white contour lines that bend around the real objects in the picture (towers, light trails, road), then fade. Contours are computed from the photo's own brightness and edges and drawn once per scene; the animation itself is opacity-only CSS, so it is cheap. Moves with the photo's zoom/pan and fades off with it on scene changes. Off under reduced-motion.
+- **Background music** — looped instrumental from `public/audio/theme.mp3` with a Sound on/off button. Add your own file (see `public/audio/README.md`); without it the button stays hidden. Audio starts after the first click/tap because browsers block autoplay.
+
 ## Projects auto-update
 
 The projects section is generated client-side by `public/js/projects.js`. On load

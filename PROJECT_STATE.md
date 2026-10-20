@@ -7,7 +7,7 @@ Replaced the glassmorphism + parallax design with a dark, HUD-style theme inspir
 - **Theme:** Night highway photography, scanline overlay, thin HUD frames and mono labels
 - **Palette:** near-black `#0c1117`, fog blue `#1b2a3a`, light-trail red `#ff5a47`, warm orange `#ff9a6b`, text `#e8eef4`
 - **Fonts:** Chakra Petch (headings), JetBrains Mono (body/labels) — loaded from Google Fonts
-- **Motion:** hero load sequence with name decode, sweeping scan line, crosshair that follows the cursor (desktop), wipe-in reveals per section with staggered delays, heading decode, metric count-up, parallax on photo bands, scroll progress bar, active nav link, card corner-bracket hover, button shine, pausing ticker. All of it is off under `prefers-reduced-motion`
+- **Motion:** hero load sequence with name decode, Death Stranding-style scan pulse: bright front sweeps up each photo, revealing white contour lines that wrap around the objects in it (see Changelog), crosshair that follows the cursor (desktop), wipe-in reveals per section with staggered delays, heading decode, metric count-up, parallax on photo bands, scroll progress bar, active nav link, card corner-bracket hover, button shine, pausing ticker. All of it is off under `prefers-reduced-motion`
 - **Stack:** Vanilla HTML/CSS plus one small inline script for the effects (no libraries, no build step). Content stays visible if JS is off
 - **Copy:** plain language for recruiters (About, Projects, Skills, Education, Contact)
 
@@ -15,6 +15,8 @@ Replaced the glassmorphism + parallax design with a dark, HUD-style theme inspir
 ```
 index.html                      — Entire site: inline CSS, embedded photos (~1.1MB)
 public/images/og-preview.jpg    — 1200x630 social preview image
+public/audio/theme.mp3          — background instrumental (YOU supply this; not in repo yet)
+public/audio/README.md          — how the audio file is used
 README.md                       — Project overview
 ```
 Legacy files from v1 are still in the repo but no longer referenced by `index.html`:
@@ -39,7 +41,15 @@ Legacy files from v1 are still in the repo but no longer referenced by `index.ht
 - Education band: skyline at dusk over a bridge, darkened and desaturated
 - Contact background: city canyon with red trails (likely Sean Pollock, Unsplash)
 
+## Changelog (latest)
+- Replaced the red top-to-bottom `.sweep` line in the hero with a Death Stranding-style scan pulse (script block "scan pulse" near the end of `index.html`, CSS `.scan` / `@keyframes ft, ff`). On load each photo is read from its CSS background, downsampled to ~200px and turned into a height map (50% blurred brightness + 50% blurred edge strength, 98th-percentile normalised, gamma .75). 72 dense contour rows (every 4th brighter, with dots on high points) are drawn once per scene, displaced by that relief so they wrap around towers, light trails, headlights and the road, then sliced into 24 horizontal strips (a faint "trail" set and a bright thick "front" set). Each strip runs an opacity-only CSS animation (2.6s loop) whose `animation-delay` is when an ease-out sweep front reaches it: the bright set flashes at the front (~0.1s), the faint set lingers and fades (~1.1s). The sweep crosses the visible hero in ~0.8s and repeats every 2.6s (about 2 pulses per scene). Lines also get fainter higher up (perspective).
+- Why this design: it is compositor-only (opacity), so there is no JS per frame and no per-frame canvas or mask repaint. Contours are drawn once per scene start/resize; a MutationObserver on the scenes keeps a `.scan` wrapper in sync with the scene's `on/out` classes and zoom/pan CSS vars, so the lines move with the photo and fade off with it on each cut. Idle scenes free their canvases (wrapper is `display:none`). Not started under `prefers-reduced-motion`. Measured in headless Chromium (software rendering, so only a relative comparison): previous per-frame canvas version 22.7 fps, this version 29.7 fps, site without scan 39.3 fps. A full-canvas CSS-mask version was tried and rejected (8.5 fps).
+- Added background music: `<audio id="bgm">` loading `public/audio/theme.mp3` (looped, fades in to 50%), plus a bottom-left "Sound on/off" button. Playback starts on the first click/tap/key (browser autoplay rule); choice is remembered in localStorage; pauses when the tab is hidden. Button stays hidden until the file exists.
+
 ## Known gaps / TODO
+- **Music file missing:** add an instrumental (no vocals) `public/audio/theme.mp3`. The video's audio could not be fetched or voice-stripped from here.
+- **Video theme not yet matched:** the YouTube page ("SLOPCORE: ESCAPE VELOCITY") could not be viewed from here, so palette/typography/layout still follow the v2 HUD theme. Needs screenshots or a description of the video's look.
+- Scan lines use brightness/edges as a stand-in for depth (no depth model), so relief is strongest on bright objects and silhouettes. Tweak the `.15` amplitude in `pts()`, the `.5/.5` weights and gamma in `build()`, `ROWS`, `B` (strip count), `DUR` and the 2.6s loop in the scan script/CSS. Check performance and audio on a real phone
 - No project screenshots (user chose not to add them)
 - Project list is hand-curated; the old GitHub API auto-update (`projects.js`) is no longer used
 - "Open to opportunities" label in hero is placeholder wording; edit or remove as needed
