@@ -12,7 +12,7 @@ Personal portfolio site built with vanilla HTML, CSS, and JavaScript. Hosted on 
 
 ## Hero effects
 
-- **Scan pulse** — a Death Stranding-style scan: a bright front sweeps up each hero photo in under a second, revealing dense white contour lines that bend around the real objects in the picture (towers, light trails, road), then fade. Contours are computed from the photo's own brightness and edges and drawn once per scene; the animation itself is opacity-only CSS, so it is cheap. Moves with the photo's zoom/pan and fades off with it on scene changes. Off under reduced-motion.
+- **Per-scene HUD** — a decorative HUD panel whose elements change with each hero photo: lane traffic graphs for the highway, a radar for the headlights, a floor-activity grid and power gauge for the office tower, window/demand gauges for the residential towers, wind and sway for the landmark tower. It glitches and rebuilds on every scene cut. Values are random, not real data. Pauses off-screen, static under reduced-motion, trimmed or hidden on small screens.
 - **Background music** — looped instrumental from `public/audio/theme.mp3` with a Sound on/off button. Add your own file (see `public/audio/README.md`); without it the button stays hidden. Audio starts after the first click/tap because browsers block autoplay.
 
 ## Projects auto-update
