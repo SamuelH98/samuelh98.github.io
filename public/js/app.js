@@ -4,3 +4,4 @@ import './main.js';
 import './telemetry.js';
 import './audio.js';
 import './hud.js';
+import './github.js';

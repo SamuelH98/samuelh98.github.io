@@ -27,7 +27,7 @@ if(!rm&&matchMedia('(pointer:fine)').matches){var tx=0,ty=0,x=0,y=0,lab=cx.query
  hero.addEventListener('mouseleave',function(){cx.classList.remove('on')});}
 
 var sc=$('.scene'),segs=$('.segs b'),fl=document.querySelector('.flash'),cur=0,scn=document.getElementById('sc'),tcE=document.getElementById('tc');
-var T=[{iw:1470,ih:980,f:[.58,.22,.7,.36],py:.42,z:1.6,t:'TAIL LIGHTS · 0.97',l:'LANE 02 · TRACKING<br>RANGE 132 M'},
+var T=[{iw:2560,ih:2052,f:[.335,.172,.73,.378],py:.3,z:1.1,t:'FLYING CAR · 0.98',l:'JETS 4/4<br>ALT 12 M'},
 {iw:1470,ih:980,f:[.395,.635,.47,.695],py:.78,z:1.9,t:'HEADLIGHTS · 0.94',l:'ID 0427 · LOCKED<br>RANGE 210 M'},
 {iw:1471,ih:980,f:[.37,.4,.45,.5],py:.6,z:1.7,t:'OFFICE TOWER · 0.96',l:'LIT FLOORS<br>ACTIVITY · HIGH'},
 {iw:1281,ih:1092,f:[.397,.295,.523,.412],py:.58,z:1.9,t:'TOWERS ×2 · 0.93',l:'RESIDENTIAL<br>WINDOWS LIT'},

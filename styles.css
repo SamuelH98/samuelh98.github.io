@@ -24,7 +24,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--hot);outline-offset
 .scene.on,.scene.out{animation:var(--z) 8.5s cubic-bezier(.35,0,.3,1) forwards}
 @keyframes zin{from{transform:translate(0,0) scale(1)}to{transform:translate(var(--dx,0px),var(--dy,0px)) scale(var(--zs,1.4))}}
 .scene.on{opacity:1}
-.s1{--bg-i:var(--i-hero);--pos:center 42%;--z:zin}
+.s1{--bg-i:var(--i-hero);--pos:center 42%;--z:zin;background-color:#03050a}
+@media(max-width:700px){.s1{background-size:240% auto;background-position:60% 30%!important}.s1.on,.s1.out{animation:none}}
 .s2{--bg-i:var(--i-star);--pos:center 78%;--z:zin;--f:saturate(1.1) brightness(1)}
 .s3{--bg-i:var(--i-canyon);--pos:center 60%;--z:zin;--f:saturate(.9) brightness(.9)}
 .s4{--bg-i:var(--i-road);--pos:center 58%;--z:zin}

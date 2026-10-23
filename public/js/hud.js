@@ -13,14 +13,7 @@ var tk2=0;addEventListener('scroll',function(){if(!tk2)tk2=requestAnimationFrame
 function clk(){var d=new Date();stt.textContent=[d.getHours(),d.getMinutes(),d.getSeconds()].map(function(n){return String(n).padStart(2,'0')}).join(':')}
 clk();setInterval(clk,1000);
 (function sample(){if(document.hidden){setTimeout(sample,4000);return}var n=0,t0=performance.now();(function f(now){n++;if(now-t0>=500){fps.textContent=Math.round(n*1000/(now-t0));setTimeout(sample,4000)}else requestAnimationFrame(f)})(t0)})();
-/* most recent commit across public repos (GitHub API; static fallback stays if blocked/rate-limited) */
-function ago(d){var s=(Date.now()-d)/1000;if(s<60)return 'just now';if(s<3600)return Math.floor(s/60)+' min ago';if(s<86400)return Math.floor(s/3600)+' h ago';return Math.floor(s/86400)+' d ago'}
-fetch('https://api.github.com/users/SamuelH98/events/public?per_page=30',{headers:{Accept:'application/vnd.github+json'}}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(ev){
- var e=ev.filter(function(x){return x.type==='PushEvent'&&x.payload&&x.payload.commits&&x.payload.commits.length})[0];if(!e)return;
- var c=e.payload.commits[e.payload.commits.length-1],repo=e.repo.name,short=repo.split('/')[1],sha=c.sha.slice(0,7);
- var msg=c.message.split('\n')[0];if(msg.length>60)msg=msg.slice(0,57)+'...';
- var a=$1('lc-msg');a.textContent=msg;a.href='https://github.com/'+repo+'/commit/'+c.sha;
- $1('lc-meta').textContent=short+' · '+sha+' · '+ago(new Date(e.created_at))}).catch(function(){});
+/* latest commit + project cards are filled in by github.js */
 })();
 
 /* HUD v4: section index, flap counter, tape sync, console typing */

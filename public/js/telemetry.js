@@ -29,8 +29,8 @@
    return{el:e,up:function(t){for(var k=0;k<3;k++){var j=Math.floor(Math.random()*n);on[j]=!on[j]}paint()}}}
  };
  var P=[
-  {t:'Traffic · Lane 02',w:[{k:'line',l:'Speed',lo:88,hi:128,st:9,f:function(v){return Math.round(v)+' km/h'}},{k:'bars',l:'Lane density',n:6,f:function(v){return Math.round(v*100)+' %'}}],
-   m:[['Headway',1.4,2.6,.4,function(v){return v.toFixed(1)+' s'}],['Veh / min',52,96,8,function(v){return Math.round(v)}],['Range',120,145,4,function(v){return Math.round(v)+' m'}],['Conf',.93,.99,.02,function(v){return v.toFixed(2)}]]},
+  {t:'Vehicle · Lift Test',w:[{k:'line',l:'Thrust',lo:68,hi:96,st:7,f:function(v){return Math.round(v)+' %'}},{k:'bars',l:'Jet output',n:4,f:function(v){return Math.round(v*100)+' %'}}],
+   m:[['Altitude',9,14,1.2,function(v){return v.toFixed(1)+' m'}],['Climb',-.4,1.6,.5,function(v){return (v>0?'+':'')+v.toFixed(1)+' m/s'}],['Jets',4,4,0,function(v){return Math.round(v)+' / 4'}],['Conf',.95,.99,.01,function(v){return v.toFixed(2)}]]},
   {t:'Target · ID 0427',w:[{k:'radar',l:'Range',max:240},{k:'line',l:'Closing speed',lo:18,hi:34,st:3,f:function(v){return v.toFixed(1)+' m/s'}}],
    m:[['Intensity',1.2,3.4,.5,function(v){return v.toFixed(1)+' kcd'}],['Conf',.9,.97,.02,function(v){return v.toFixed(2)}],['Track age',4,30,3,function(v){return v.toFixed(0)+' s'}],['Drift',-2.4,2.4,.8,function(v){return (v>0?'+':'')+v.toFixed(1)+' °'}]]},
   {t:'Structure · Office Tower',w:[{k:'grid',l:'Floors lit',c:12,r:4},{k:'gauge',l:'Power load',lo:180,hi:420,f:function(v){return Math.round(v)+' kW'}}],
